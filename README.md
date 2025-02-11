@@ -2,4 +2,4 @@
 ### MSV: 22810310393
 ## Ket qua
 
-![](Baitapbuoi5.jpg)
+![](Baiapbuoi5.jpg)
