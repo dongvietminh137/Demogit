@@ -1,9 +1,8 @@
-import React, {useState} from "react";
-import { SafeAreaView, View, ScrollView, Text, Image, TextInput, TouchableOpacity, StyleSheet, } from "react-native";
+import React from "react";
+import { SafeAreaView, View, ScrollView, Text, Image, TouchableOpacity, StyleSheet, } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 export default () => {
-	const [textInput1, onChangeTextInput1] = useState('');
-	const navigation = useNavigation();
+  const navigation = useNavigation();
 	return (
 		<SafeAreaView style={styles.container}>
 			<ScrollView  style={styles.scrollView}>
@@ -15,42 +14,37 @@ export default () => {
 						</View>
 					</View>
 					<View style={styles.column2}>
+						<View style={styles.view2}>
+							<Image
+								source={require('../assets/icon1.png')} 
+								resizeMode = {"stretch"}
+								style={styles.image4}
+							/>
+						</View>
 						<Image
-							source={require('../assets/icon1.png')}
-							resizeMode = {"stretch"}
-							style={styles.image4}
-						/>
-						<Image
-							source={require('../assets/hoaqua2.png')} 
+							source={require('../assets/hoaqua1.png')}
 							resizeMode = {"stretch"}
 							style={styles.image5}
 						/>
 					</View>
-					<View style={styles.column3}>
-						<View >
-							<Image
-						    source={require('../assets/Ellipse.png')}  
-								resizeMode = {"stretch"}
-								style={styles.absoluteImage}
-							/>
-						</View>
-					</View>
+					<Image
+						source={require('../assets/Ellipse1.png')} 
+						resizeMode = {"stretch"}
+						style={styles.image6}
+					/>
 				</View>
-				<View style={styles.column4}>
-					<View style={styles.column5}>
+				<View style={styles.column3}>
+					<View style={styles.column4}>
 						<Text style={styles.text2}>
-							{"What is your firstname?"}
+							{"Get The Freshest Fruit Salad Combo"}
 						</Text>
-						<TextInput
-							placeholder={"Tony"}
-							value={textInput1}
-							onChangeText={onChangeTextInput1}
-							style={styles.input}
-						/>
-					</View>
-					<TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Trangchu')}>
 						<Text style={styles.text3}>
-							{"Start Ordering"}
+							{"We deliver the best and freshest fruit salad in town. Order for a combo today!!!"}
+						</Text>
+					</View>
+					<TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Home')}>
+						<Text style={styles.text4}>
+							{"Let’s Continue"}
 						</Text>
 					</TouchableOpacity>
 				</View>
@@ -63,30 +57,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: "#FFFFFF",
 	},
-	absoluteImage: {
-		position: "absolute",
-		bottom:-10,
-		left: 19,
-		borderRadius: 32,
-		width: 290,
-		height: 15,
-	},
-	absoluteImage2: {
-		position: "absolute",
-		bottom: -3,
-		right: 41,
-		borderRadius: 32,
-		width: 23,
-		height: 9,
-	},
-	absoluteImage3: {
-		position: "absolute",
-		top: 0,
-		right: 9,
-		borderRadius: 32,
-		width: 23,
-		height: 9,
-	},
 	box: {
 		flex: 1,
 		alignSelf: "stretch",
@@ -96,28 +66,24 @@ const styles = StyleSheet.create({
 		backgroundColor: "#FFA451",
 		borderRadius: 10,
 		paddingVertical: 18,
+    width: '100%',
 	},
 	column: {
-		alignItems: "flex-start",
 		backgroundColor: "#FFA451",
 		paddingBottom: 34,
 		marginBottom: 56,
 	},
 	column2: {
-		alignItems: "flex-end",
-		marginBottom: 5,
-		marginLeft: 31,
+		marginBottom: 8,
+		marginHorizontal: 35,
 	},
 	column3: {
-		paddingTop: 3,
-		marginHorizontal: 37,
-	},
-	column4: {
+		alignItems: "flex-start",
 		marginBottom: 88,
 		marginHorizontal: 24,
 	},
-	column5: {
-		marginBottom: 42,
+	column4: {
+		marginBottom: 58,
 	},
 	image: {
 		width: 16,
@@ -137,24 +103,17 @@ const styles = StyleSheet.create({
 		borderRadius: 32,
 		width: 50,
 		height: 37,
+		marginRight: 4,
 	},
 	image5: {
-		borderRadius: 35,
-		width: 335,
-		height: 281,
+		borderRadius: 32,
+		height: 260,
+    marginHorizontal: 30
 	},
 	image6: {
 		borderRadius: 32,
-		height: 12,
-	},
-	input: {
-		color: "#C2BCBC",
-		fontSize: 20,
-		backgroundColor: "#F3F1F1",
-		borderRadius: 10,
-		paddingVertical: 13,
-		paddingLeft: 24,
-		paddingRight: 48,
+		height: 13,
+		marginHorizontal: 74,
 	},
 	row: {
 		flexDirection: "row",
@@ -175,12 +134,17 @@ const styles = StyleSheet.create({
 	},
 	text2: {
 		color: "#27214D",
-		fontSize: 20,
+		fontSize: 18,
 		fontWeight: "bold",
-		marginBottom: 17,
-		marginLeft: 1,
+		marginBottom: 8,
+		marginHorizontal: 1,
 	},
 	text3: {
+		color: "#5C577E",
+		fontSize: 14,
+		width: 260,
+	},
+	text4: {
 		color: "#FFFFFF",
 		fontSize: 16,
 		fontWeight: "bold",
@@ -189,5 +153,8 @@ const styles = StyleSheet.create({
 		backgroundColor: "#FF3B30",
 		borderRadius: 32,
 		paddingVertical: 2,
+	},
+	view2: {
+		alignItems: "flex-end",
 	},
 });
