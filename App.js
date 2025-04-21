@@ -1,30 +1,40 @@
-import React from "react";
-import 'react-native-gesture-handler';
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-// import SplashScreen from "./screens/SplashScreen";
-// import OnboardingScreen from "./screens/OnboardingScreen";
-// import SignInScreen from "./screens/SignInScreen";
-// import NumberScreen from "./screens/NumberScreen";
-import LoginScreen from "./screens/LoginScreen";
-import ExplorerScreen from "./screens/ExplorerScreen";
-// import LoginScreen from "./screens/SignInScreen";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusBar } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-const Stack = createStackNavigator();
+// Screens
+import splash from './screens/splash';
+import HomeScreen from './screens/HomeScreen';
+import DetailScreen from './screens/DetailScreen';
+import Trangchu from './screens/Trangchu';
+import giohang from './screens/giohang';
+import Order from './screens/Order';
+import comdetail from './screens/comdetail';
+import Trackorder from './screens/Trackorder';
+import Thongtin from './screens/Thongtin';
+import inputcard from './screens/inputcard';
+const Stack = createNativeStackNavigator();
 
-const App = () => {
+export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-        <Stack.Screen name="SignIn" component={SignInScreen} />
-        <Stack.Screen name="Number" component={NumberScreen} /> */}
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="ExplorerScreen" component={ExplorerScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <StatusBar barStyle="dark-content" />
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="splash">
+          <Stack.Screen name="Detail" component={DetailScreen} options={{ headerShown: false }} /> 
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
+          <Stack.Screen name="Trangchu" component={Trangchu} options={{ headerShown: false }}/>
+          <Stack.Screen name="giohang" component={giohang} options={{ headerShown: false }}/>
+          <Stack.Screen name="Order" component={Order} options={{ headerShown: false }}/>
+          <Stack.Screen name="comdetail" component={comdetail} options={{ headerShown: false }}/>
+          <Stack.Screen name="Trackorder" component={Trackorder} options={{ headerShown: false }}/>
+          <Stack.Screen name="Thongtin" component={Thongtin} options={{ headerShown: false }}/>
+          <Stack.Screen name="splash" component={splash} options={{ headerShown: false }}/>
+          <Stack.Screen name="inputcard" component={inputcard} options={{ headerShown: false }}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
-};
-
-export default App;
+}
